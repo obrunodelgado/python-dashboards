@@ -1,6 +1,6 @@
 import plotly.offline as pyo
 import plotly.graph_objs as go
-from plotly import tools
+from plotly import subplots
 import pandas as pd
 
 df = pd.read_csv('../data/2010SitkaAK.csv')
@@ -37,11 +37,11 @@ trace3 = go.Heatmap(
     zmax=40
 )
 
-fig = tools.make_subplots(rows=1, cols=3, subplot_titles=['Sitka AK', 'SB CA', 'Yuma AZ'], shared_yaxes=True)
+fig = subplots.make_subplots(rows=1, cols=3, subplot_titles=['Sitka AK', 'SB CA', 'Yuma AZ'], shared_yaxes=True)
 
-fig.append_trace(trace1, 1, 1)
-fig.append_trace(trace2, 1, 2)
-fig.append_trace(trace3, 1, 3)
+fig.add_trace(trace1, row=1, col=1)
+fig.add_trace(trace2, row=1, col=2)
+fig.add_trace(trace3, row=1, col=3)
 
 fig['layout'].update(title='Temps for 3 cities')
 
