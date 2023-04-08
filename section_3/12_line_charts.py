@@ -6,26 +6,28 @@ np.random.seed(56)
 x_values = np.linspace(0, 1, 100)
 y_values = np.random.randn(100)
 
-trace0 = go.Scatter(
+markers = go.Scatter(
     x=x_values,
     y=y_values+5,
     mode='markers',
     name='markers'
 )
-trace1 = go.Scatter(
+
+lines = go.Scatter(
     x=x_values,
     y=y_values,
     mode='lines',
     name='mylines'
 )
-trace2 = go.Scatter(
+
+linesAndMarkers = go.Scatter(
     x=x_values,
     y=y_values-5,
     mode='lines+markers',
     name='myfavorite'
 )
 
-data = [trace0, trace1, trace2]
+data = [markers, lines, linesAndMarkers]
 
 layout = go.Layout(
     title='Line Charts'
