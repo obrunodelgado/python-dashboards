@@ -29,4 +29,4 @@ layout = go.Layout(
 
 fig = go.Figure(data=data, layout=layout)
 
-pyo.plot(fig, "14_line_charts_exercise.html")
+pyo.plot(fig, filename="../charts/14_line_charts_exercise.html")

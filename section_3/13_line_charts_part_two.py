@@ -18,4 +18,4 @@ data = [
     ) for name in df2.index
 ]
 
-pyo.plot(data, "13_line_charts_part_two.html")
+pyo.plot(data, filename="../charts/13_line_charts_part_two.html")
