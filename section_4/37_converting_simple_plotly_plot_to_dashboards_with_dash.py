@@ -10,31 +10,73 @@ np.random.seed(42)
 random_x = np.random.randint(1, 101, 100)
 random_y = np.random.randint(1, 101, 100)
 
-app.layout = html.Div([
-    dcc.Graph(
-        id='scatterplot',
-        figure={
-            'data': [
-                go.Scatter(
-                    x=random_x,
-                    y=random_y,
-                    mode='markers',
-                    marker={
-                        'size': 12,
-                        'color': 'rgb(51,204,153)',
-                        'symbol': 'pentagon',
-                        'line': {'width': 2}
+scatterPlot = dcc.Graph(
+    id='scatterplot',
+    figure={
+        'data': [
+            go.Scatter(
+                x=random_x,
+                y=random_y,
+                mode='markers',
+                marker={
+                    'size': 12,
+                    'color': 'rgb(51,204,153)',
+                    'symbol': 'pentagon',
+                    'line': {
+                        'width': 2
                     }
-                )
-            ],
-            'layout': go.Layout(
-                title='My Scatterplot',
-                xaxis={'title': 'Some X title'},
-                yaxis={'title': 'Some Y title'},
-                hovermode='closest'
+                }
             )
-        }
-    )
+        ],
+        'layout': go.Layout(
+            title='My Scatterplot',
+            xaxis={
+                'title':
+                    'Some X title'
+            },
+            yaxis={
+                'title': 'Some Y title'
+            },
+            hovermode='closest'
+        )
+    }
+)
+
+scatterPlot2 = dcc.Graph(
+    id='scatterplot2',
+    figure={
+        'data': [
+            go.Scatter(
+                x=random_x,
+                y=random_y,
+                mode='markers',
+                marker={
+                    'size': 12,
+                    'color': 'rgb(51,204,153)',
+                    'symbol': 'pentagon',
+                    'line': {
+                        'width': 2
+                    }
+                }
+            )
+        ],
+        'layout': go.Layout(
+            title='My Scatterplot',
+            xaxis={
+                'title':
+                    'Some X title'
+            },
+            yaxis={
+                'title': 'Some Y title'
+            },
+            hovermode='closest'
+        )
+    }
+)
+
+app.layout = html.Div([
+    scatterPlot,
+    scatterPlot2
 ])
 
 if __name__ == '__main__':
