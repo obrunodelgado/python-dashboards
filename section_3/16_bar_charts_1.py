@@ -15,4 +15,4 @@ layout = go.Layout(
 
 fig = go.Figure(data=data, layout=layout)
 
-pyo.plot(fig, filename='../charts/16_bar_charts.html')
+pyo.plot(fig, filename='../charts/16_bar_charts_1.html')
