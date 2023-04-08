@@ -19,4 +19,4 @@ layout = go.Layout(
     between Quintus Curtius Snodgrass and Mark Twain'
 )
 fig = go.Figure(data=data, layout=layout)
-pyo.plot(fig, filename='22_box_plots_4.html')
+pyo.plot(fig, filename='../charts/22_box_plots_4.html')
