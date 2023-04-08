@@ -4,10 +4,21 @@ from dash import html
 
 app = dash.Dash()
 
+colors = {
+    'background': '#111111',
+    'text': '#7FDBFF'
+}
+
+
 app.layout = html.Div(
     children=[
-        html.H1('Dash Tutorials'),
-        html.Div('Dash: Web Dashboards with Python & React'),
+        html.H1(
+            'Dash Tutorials',
+            style={
+                'textAlign': 'center',
+                'color': colors['text']
+            }
+        ),
         dcc.Graph(
             id='example',
             figure={
@@ -16,11 +27,19 @@ app.layout = html.Div(
                     {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
                 ],
                 'layout': {
+                    'plot_bgcolor': colors['background'],
+                    'paper_bgcolor': colors['background'],
+                    'font': {
+                        'color': colors['text']
+                    },
                     'title': 'Dash Data Visualization'
                 }
             }
-        )
-    ]
+        ),
+    ],
+    style={
+        'backgroundColor': colors['background']
+    }
 )
 
 if __name__ == '__main__':
