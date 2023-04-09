@@ -11,7 +11,7 @@ app = dash.Dash()
 
 year_options = []
 for year in df['year'].unique():
-    year_options.append({'label':str(year), 'value':year})
+    year_options.append({'label': str(year), 'value': year})
 
 app.layout = html.Div([
     dcc.Graph(id='graph'),
@@ -35,7 +35,7 @@ def update_figure(selected_year):
             y=df_by_continent['lifeExp'],
             mode='markers',
             opacity=0.7,
-            marker={'size':15},
+            marker={'size': 15},
             name=continent_name
         ))
 
