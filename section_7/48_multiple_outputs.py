@@ -1,10 +1,10 @@
+import base64
+
 import dash
+import pandas as pd
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
-import plotly.graph_objs as go
-import pandas as pd
-import base64
 
 df = pd.read_csv('../data/wheels.csv')
 
