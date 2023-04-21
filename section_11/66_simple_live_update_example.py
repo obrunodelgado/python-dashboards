@@ -2,7 +2,10 @@ import dash
 from dash import html
 from dash import dcc
 from dash.dependencies import Input, Output
+import plotly.graph_objs as go
 import requests
+
+counter_list = []
 
 app = dash.Dash()
 
@@ -11,9 +14,10 @@ app.layout = html.Div(
         html.Div(
             [
                 html.Pre(id='counter-text', children='Active flights worldwide:'),
+                dcc.Graph(id='live-update-graph', style={'width': '100%'}),
                 dcc.Interval(
                     id='interval-component',
-                    interval=6*1000, # in milliseconds
+                    interval=6000, # in milliseconds
                     n_intervals=0
                 )
             ]
@@ -36,7 +40,27 @@ def update_layout(n):
     for element in data['stats']['total']:
         counter += data['stats']['total'][element]
 
+    counter_list.append(counter)
+
     return f'Active flights worldwide: {counter}'
+
+
+@app.callback(
+    Output('live-update-graph', 'figure'),
+    Input('interval-component', 'n_intervals')
+)
+def update_graph(n):
+    fig = go.Figure(
+        data=[
+            go.Scatter(
+                x=list(range(len(counter_list))),
+                y=counter_list,
+                mode='lines+markers'
+            )
+        ],
+    )
+
+    return fig
 
 
 if __name__ == '__main__':
